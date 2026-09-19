@@ -28,16 +28,45 @@ slides[slideIndex-1].style.display = "block";
 dots[slideIndex-1].className += " active";
 } 
 
-window.onscroll = function() {scroll()};
+const navbar = document.getElementById('navbar');
+const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+const sections = navLinks
+  .map((link) => document.querySelector(link.hash))
+  .filter((section) => section !== null);
+
+window.onscroll = function() {
+  scroll();
+  updateActiveSection();
+};
+
 function scroll() {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("navbar").style.padding = "10px 10px";
-    document.getElementById("navbar").style.fontSize = "20px";
+    navbar.style.padding = "10px 10px";
+    navbar.style.fontSize = "20px";
   } else {
-    document.getElementById("navbar").style.padding = "60px 10px";
-    document.getElementById("navbar").style.fontSize = "25px";
+    navbar.style.padding = "60px 10px";
+    navbar.style.fontSize = "25px";
   }
-} 
+}
+
+function updateActiveSection() {
+  const navBottom = navbar.getBoundingClientRect().bottom;
+  let activeIndex = sections.findIndex((section) => {
+    const sectionBounds = section.getBoundingClientRect();
+    return sectionBounds.top <= navBottom && sectionBounds.bottom > navBottom;
+  });
+
+  if (activeIndex === -1 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight) {
+    activeIndex = sections.length - 1;
+  }
+
+  navLinks.forEach((link, index) => {
+    link.classList.toggle('active', index === activeIndex);
+  });
+}
+
+scroll();
+updateActiveSection();
 
 const modal = document.getElementById('myModal');
 const openBtn = document.getElementById('openModalBtn');
