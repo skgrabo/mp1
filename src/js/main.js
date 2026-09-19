@@ -32,9 +32,19 @@ window.onscroll = function() {scroll()};
 function scroll() {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
     document.getElementById("navbar").style.padding = "10px 10px";
-    //srink text too
+    document.getElementById("navbar").style.fontSize = "20px";
   } else {
     document.getElementById("navbar").style.padding = "60px 10px";
-    //make texet bigger again
+    document.getElementById("navbar").style.fontSize = "25px";
   }
 } 
+
+const modal = document.getElementById('myModal');
+const openBtn = document.getElementById('openModalBtn');
+const closeBtn = document.getElementById('closeModalBtn');
+openBtn.addEventListener('click', () => {
+  modal.showModal(); 
+});
+closeBtn.addEventListener('click', () => {
+  modal.close();
+});

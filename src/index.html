@@ -18,6 +18,11 @@
 
         <header class="header" id="header">
             <h1>Section 1</h1>
+            <video autoplay muted loop playsinline width="640" height="360">
+                <source src="./assets/stars.mp4" type="video/mp4">
+                <!-- <source src="your-video.webm" type="video/webm"> -->
+                Your browser does not support the video tag.
+            </video>
         </header>
 
         <div id="main-content" class="main-content">
@@ -60,9 +65,16 @@
         <script src="./js/main.js" defer></script>
 
         <footer class="footer" id="footer">
-            <div class="grid-item">Column 1</div>
-            <div class="grid-item">Column 2</div>
-            <div class="grid-item">Column 3</div>
+            <div class="grid-item"><h1>Column 1</h1></div>
+            <div class="grid-item">
+                <button id="openModalBtn">Open Modal</button>
+                <dialog id="myModal">
+                    <h2>Modal Title</h2>
+                    <p>This is a native HTML modal dialog box.</p>
+                    <button id="closeModalBtn">Close</button>
+                </dialog>
+            </div>
+            <div class="grid-item"><h1>Column 3</h1></div>
         </footer>
     </body>
 </html>
