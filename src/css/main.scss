@@ -1,9 +1,21 @@
 /* Your SCSS here. */
 
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin dark-theme {
+background-color:black;
+color: rgb(222, 192, 255);
+}
+
 *, html {
   margin:0;
   padding:0;  
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .navbar {
@@ -18,16 +30,14 @@
 }
 
 .nav-links {
-  display: flex;
+  @include center;
   list-style: none;
-  text-align: center;
   justify-content: space-between;
-  align-items: center;
   padding: 15px 30px;
 }
 
 .nav-links a {
-  color: rgb(78, 0, 114);
+  color: rgb(57, 0, 114);
   text-decoration: none;
 }
 
@@ -36,24 +46,21 @@
 }
 
 .header {
+  @include dark-theme;
   text-align: center;
-  background-color:black;
+  align-items: center;
   margin: 0;
   padding: 0;
-  height: 100vh;
-  padding-top: 120px;
-  color: rgb(222, 192, 255);
+  height: 100vh + 20;
+  padding-top: 200px;
 }
 
 .main-content {
-  display: flex;
+  @include center;
   color: rgb(222, 192, 255);
-  text-align: center;
-  // padding: 20px;
   background-color: #f5f5f5;
   width: 100%;
   justify-content: center;
-  align-items: center;
   background-image: url('../assets/shimmer.jpg');
   background-size: cover;
   background-attachment: fixed;
@@ -69,7 +76,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
   gap: 20px; 
-  background:rgb(78, 0, 114);
+  background: rgb(57, 0, 114);
 }
 
 .grid-item {
@@ -88,8 +95,7 @@
   margin: auto;
   height: 100vh;
   padding-top: 120px;
-  background: black;
-  color:rgb(222, 192, 255);
+  @include dark-theme;
 }
 
 .mySlides {
@@ -101,7 +107,6 @@
   position: absolute;
   top: 50%;
   width: auto;
-  margin-top: -22px;
   padding: 16px;
   color: white;
   font-weight: bold;
@@ -117,23 +122,7 @@
 }
 
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-  color: rgb(222, 192, 255);
-}
-
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color:  rgb(222, 192, 255);
+  @include dark-theme;
 }
 
 .fade {
@@ -146,10 +135,6 @@
   to {opacity: 1}
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 dialog {
   top: 50%;
   left: 50%;
@@ -160,13 +145,14 @@ dialog {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   width: 50%;
 }
+
 dialog::backdrop {
   backdrop-filter: blur(3px);
 }
 
 button {
   padding: 10px 20px;
-  background-color: rgb(78, 0, 114);
+  background-color: rgb(57, 0, 114);
   color: white;
   border: none;
   border-radius: 4px;
