@@ -71,8 +71,8 @@ color: rgb(222, 192, 255);
 .footer {
   text-align: center;
   background-color:cornsilk;
-  height: 100vh;
-  padding-top: 120px;
+  height: 100px;
+  padding-top: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
   gap: 20px; 
@@ -93,8 +93,8 @@ color: rgb(222, 192, 255);
   max-width: 500px;
   position: relative;
   margin: auto;
-  height: 100vh;
-  padding-top: 120px;
+  height: 90vh;
+  padding-top: 80px;
   @include dark-theme;
 }
 
